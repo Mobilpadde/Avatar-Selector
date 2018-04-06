@@ -1,0 +1,58 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "history": "^4.7.2",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.3.1",
+    "react-router-dom": "^4.2.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.2.6",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "cypress": "^2.1.0",
+    "eslint": "^4.18.2",
+    "eslint-config-xo-react": "^0.16.0",
+    "eslint-plugin-react": "^7.7.0",
+    "node-sass": "^4.7.2",
+    "parcel-bundler": "^1.5.1",
+    "postcss-modules": "^1.1.0",
+    "pug": "^2.0.3",
+    "xo": "^0.20.3"
+  },
+  "scripts": {
+    "start": "parcel index.pug",
+    "watch": "parcel watch index.pug",
+    "build": "parcel build index.pug --public-url=./",
+    "test": "xo && cypress open"
+  },
+  "xo": {
+    "plugins": [
+      "react"
+    ],
+    "envs": [
+      "browser"
+    ],
+    "extends": [
+      "xo-react"
+    ],
+    "space": 4,
+    "rules": {
+      "object-curly-spacing": 0,
+      "comma-dangle": 0,
+      "arrow-parens": 0,
+      "jsx-quotes": 0,
+      "no-return-assign": 0,
+      "capitalized-comments": 0,
+      "import/no-unassigned-import": 0,
+      "import/extensions": "json"
+    },
+    "ignores": ["cypress"]
+  }
+}

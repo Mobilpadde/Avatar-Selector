@@ -1,0 +1,77 @@
+@import '../../styles/vars.sass'
+
+.avatar
+    width: $avatar-size
+    height: $avatar-size
+    display: inline-block
+    border-radius: 50%
+    margin: $avatar-margin
+    position: relative
+
+    &.chosen
+        img
+            top: 0
+            left: 0
+
+        &:hover, &.popopen
+            margin: $avatar-margin - $avatar-border-radius
+            border: $avatar-border-radius $avatar-border solid
+
+    &:not(.chosen):not(.spinner):hover, &.selector
+        margin: $avatar-margin - $avatar-border-hover-radius
+        border: $avatar-border-hover-radius $avatar-border solid
+
+        &:after
+            content: ""
+            background: $avatar-overlay
+            width: $avatar-size
+            height: $avatar-size
+            border-radius: 50%
+            position: absolute
+            top: 0
+            left: 0
+            z-index: 2
+
+    &.selected
+        margin: $avatar-margin - $avatar-border-hover-radius
+        border: $avatar-border-hover-radius $avatar-spinner solid
+
+    &.spinner
+        position: relative
+
+        &::before
+            content: ""
+            width: $avatar-size
+            height: $avatar-size
+            border: $avatar-border-hover-radius $avatar-spinner solid
+            border-radius: 50%
+            position: absolute
+            top: -$avatar-border-hover-radius
+            left: -$avatar-border-hover-radius
+            z-index: 1
+
+        &::after
+            content: ""
+            width: $avatar-size / 2 + $avatar-border-hover-radius
+            height: $avatar-size / 2 + $avatar-border-hover-radius
+            background: $popover-bg
+            border-top-left-radius: 50%
+            position: absolute
+            top: -$avatar-border-hover-radius
+            left: -$avatar-border-hover-radius
+            z-index: 1
+            transform-origin: bottom right
+            animation: spin 1s infinite
+
+    img
+        width: $avatar-size
+        height: $avatar-size
+        border-radius: 50%
+        position: absolute
+        z-index: 2
+
+@keyframes spin
+    0%
+        transform: rotate(227deg)
+    100%
+        transform: rotate(227deg + 360)

@@ -1,0 +1,49 @@
+@import '../../styles/vars.sass'
+
+.selector
+    width: $popover-width
+    height: $popover-height
+    background: $popover-bg
+    color: $bg
+    padding: $popover-padding
+    border-radius: $popover-radius
+    box-shadow: 0 0 $popover-shadow-blur $popover-shadow-size $popover-shadow-color
+    position: relative
+    transform: scale(0)
+
+    &.open
+        animation: scaleIn 500ms forwards
+
+    &::before
+        content: ""
+        width: 0
+        height: 0
+        border-left: $popover-triangle-size transparent solid
+        border-right: $popover-triangle-size transparent solid
+        border-bottom: $popover-triangle-size $popover-bg solid
+        position: absolute
+        top: -$popover-triangle-size + 1
+        left: 50%
+        transform: translateX(-50%)
+
+    p
+        font-weight: 600
+        text-align: center
+        margin: 0.5em
+
+    ul
+        list-style-type: none
+        margin: 0
+        -webkit-margin-before: 0
+        -webkit-margin-after: 0
+        -webkit-padding-start: 0
+        -moz-padding-start: 0
+        -ms-padding-start: 0
+
+@keyframes scaleIn
+    0%
+        transform: scale(0)
+    80%
+        transform: scale(1.1)
+    100%
+        transform: scale(1)
